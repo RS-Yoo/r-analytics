@@ -8,3 +8,7 @@ mpg$drv <- ifelse(mpg$drv %in% c("4", "f", "r"), mpg$drv, NA)
 table(mpg$drv)
 
 #상자 그림을 이용해 cty에 이상치가 있는지 확인. 통계치를 이용해 정상 범위를 벗어난 값 결측 처리 후 이상치가 사라졌는지 확인.
+boxplot(mpg$cty)
+boxplot(mpg$cty)$stats
+mpg$cty <- ifelse(mpg$cty < 9 | mpg$cty > 26, NA, mpg$cty)
+boxplot(mpg$cty)
